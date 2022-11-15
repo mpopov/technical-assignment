@@ -1,0 +1,25 @@
+.posts {
+  flex-grow: 1;
+  overflow-y: scroll;
+  padding: var(--margin-default);
+  text-align: center;
+}
+
+.post {
+  background: var(--white);
+  border: var(--border-default);
+  border-radius: var(--border-radius);
+  margin-bottom: calc(.5 * var(--margin-default));
+  text-align: left;
+}
+
+.header {
+  background: var(--grey);
+  border-bottom: var(--border-default);
+  font-size: 0.9em;
+  padding: calc(var(--padding-default) / 2) var(--padding-default);
+}
+
+.body {
+  padding: var(--padding-default);
+}

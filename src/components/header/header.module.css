@@ -1,0 +1,36 @@
+.header {
+  background: var(--grey);
+  height: var(--header-height);
+  margin-top: calc(-1 * var(--header-height));
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.heading {
+  background: var(--blue);
+  color: var(--white);
+  float: left;
+  font-size: 1rem;
+  margin: 0;
+  padding: calc(.5 * var(--padding-default));
+}
+
+.heading a {
+  color: inherit;
+}
+
+.sideMenu {
+  padding: 2px calc(0.5 * var(--padding-default));
+}
+
+.sideMenuBtn {
+  margin-left: calc(0.5 * var(--margin-default));
+}
+
+.loader {
+  margin-top: -5px;
+  width: 100%;
+}

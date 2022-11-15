@@ -1,0 +1,30 @@
+.loadingBar {
+  --color-accent: var(--blue);
+  --color-background: var(--grey);
+  
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-accent) 0%,
+    var(--color-accent) 25%,
+    var(--color-background) 45%,
+    var(--color-background) 55%,
+    var(--color-background) 80%,
+    var(--color-accent) 100%
+  );
+  background-size: 200% auto;
+  background-position: 0 100%;
+  animation: gradient 1s infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  width: 100%;
+  height: 5px;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

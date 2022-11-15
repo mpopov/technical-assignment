@@ -1,0 +1,55 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginForm {
+  border: var(--border-default);
+  border-radius: var(--border-radius);
+  padding: calc(4 * var(--padding-default));
+  width: 250px;
+  align-items: center;
+  margin-bottom: 200px;
+}
+
+.loginForm h3 {
+  color: var(--grey-dark);
+  margin: 0 0 var(--margin-default);
+  text-align: center;
+}
+
+.loginFormItem {
+  margin-bottom: var(--margin-default);
+}
+
+.loginForm input {
+  border: var(--border-default);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+  padding: calc(0.5 * var(--padding-default)) var(--padding-default);
+  outline: none;
+  width: 100%;
+}
+
+.loginForm input:focus {
+  border-color: var(--blue);
+}
+
+.loginForm button {
+  border: var(--border-default);
+  border-radius: var(--border-radius);
+  padding: calc(0.5 * var(--padding-default)) calc(3 * var(--padding-default));
+  outline: none;
+  float: right;
+}
+
+.errorMessage {
+  border-radius: var(--border-radius);
+  background: var(--red-light);
+  color: var(--red);
+  padding: var(--padding-default);
+  margin-bottom: var(--margin-default);
+}

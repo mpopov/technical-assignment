@@ -1,0 +1,13 @@
+.app {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  height: 100vh;
+  padding-top: var(--header-height);
+  overflow: hidden;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+}

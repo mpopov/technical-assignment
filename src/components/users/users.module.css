@@ -1,0 +1,11 @@
+.users {
+  display: flex;
+  height: 100%;
+}
+
+.navigation {
+  font-size: 1.2rem;
+  min-width: 25%;
+  overflow-y: scroll;
+}
+
