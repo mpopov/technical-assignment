@@ -9,9 +9,13 @@
   --blue: #006aff;
   --red: #aa3333;
   --red-light: #fdcccc;
+  --yellow-light: #fff6ca;
+
+  --filters-bg: var(--yellow-light);
+  --filters-height: 50px;
 
   --header-height: 30px;
-  
+
   --border-radius: 4px;
   --border-default: 1px solid var(--grey);
 

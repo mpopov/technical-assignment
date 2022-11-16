@@ -1,0 +1,23 @@
+.filters {
+  background: var(--filters-bg);
+  padding: var(--padding-default);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--filters-height);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.sorting input {
+  color: var(--grey-mid);
+  margin-right: calc(0.5 * var(--margin-default));
+  padding: calc(0.3 * var(--padding-default)) var(--padding-default);
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+.search input {
+  outline: none;
+  padding: calc(0.1 * var(--padding-default)) var(--padding-default);
+}

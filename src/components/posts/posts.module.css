@@ -1,15 +1,21 @@
 .posts {
   flex-grow: 1;
-  overflow-y: scroll;
-  padding: var(--margin-default);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  padding: var(--margin-default);
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .post {
   background: var(--white);
   border: var(--border-default);
   border-radius: var(--border-radius);
-  margin-bottom: calc(.5 * var(--margin-default));
+  margin-bottom: calc(0.5 * var(--margin-default));
   text-align: left;
 }
 

@@ -11,13 +11,14 @@ const URL = 'https://api.supermetrics.com/assignment';
 const PAGE_MAX = 10;
 
 type AppActions = UserAction | AuthAction | UpdateLocationActions;
+type AppThunkAction = ThunkAction<void, RootState, undefined, AppActions>;
 
-export const logout = (): ThunkAction<void, RootState, undefined, AppActions> => async (dispatch) => {
+export const logout = (): AppThunkAction => async (dispatch) => {
   dispatch({ type: AuthActionTypes.LOGOUT });
   dispatch(push('/login'));
 };
 
-export const loadData = (): ThunkAction<void, RootState, undefined, AppActions> => async (dispatch, getState) => {
+export const loadData = (): AppThunkAction => async (dispatch, getState) => {
   const state = getState();
   const { loaded, loading } = state.users;
   if (loading || loaded) return;
@@ -26,15 +27,16 @@ export const loadData = (): ThunkAction<void, RootState, undefined, AppActions> 
   dispatch({ type: UserActionTypes.LOAD_DATA_REQUEST });
   try {
     const promises = [...Array(PAGE_MAX)].map((_, i) => {
-      return axios.get(`${URL}/posts?sl_token=${token}&page=${i + 1}`)
-        .then(({data: { data }}) => {
+      return axios
+        .get(`${URL}/posts?sl_token=${token}&page=${i + 1}`)
+        .then(({ data: { data } }) => {
           dispatch({ type: UserActionTypes.LOAD_DATA_CHUNK_SUCCESS, data: normalizeApiData(data.posts) });
         })
         .catch((e: AxiosError) => {
           if (e.response?.status === 401) {
             dispatch(logout());
             dispatch({ type: UserActionTypes.LOAD_DATA_ERROR, error: new Error(e.response.statusText) });
-          }
+          } else throw e;
         });
     });
     await Promise.all(promises);
@@ -46,7 +48,7 @@ export const loadData = (): ThunkAction<void, RootState, undefined, AppActions> 
 };
 
 export const register =
-  ({ email, name }: IAuthData): ThunkAction<void, RootState, undefined, AppActions> =>
+  ({ email, name }: IAuthData): AppThunkAction =>
   async (dispatch, getState) => {
     const state = getState();
     const { loading } = state.auth;
@@ -55,7 +57,9 @@ export const register =
     dispatch({ type: AuthActionTypes.REGISTER_REQUEST });
     const params = { client_id: API_KEY, email, name };
     try {
-      const {data: { data }} = await axios.post(`${URL}/register`, params);
+      const {
+        data: { data },
+      } = await axios.post(`${URL}/register`, params);
       dispatch({ type: AuthActionTypes.REGISTER_SUCCESS, data: { token: data.sl_token, name } });
       dispatch(loadData());
       dispatch(push('/users'));

@@ -15,7 +15,7 @@
   float: left;
   font-size: 1rem;
   margin: 0;
-  padding: calc(.5 * var(--padding-default));
+  padding: calc(.5 * var(--padding-default)) var(--padding-default);
 }
 
 .heading a {
@@ -23,7 +23,7 @@
 }
 
 .sideMenu {
-  padding: 2px calc(0.5 * var(--padding-default));
+  padding: 2px var(--padding-default);
 }
 
 .sideMenuBtn {
