@@ -31,7 +31,7 @@ function LoginForm({ onSubmit }: LoginFormProps) {
             <input placeholder='Name' value={name} onChange={(e) => setName(e.target.value)} />
           </div>
           <div className={styles.loginFormItem}>
-            <input placeholder='Email' type='email' onChange={(e) => setEmail(e.target.value)} />
+            <input placeholder='Email' type='email' value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div>
             <button type='submit'>GO</button>

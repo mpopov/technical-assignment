@@ -1,4 +1,5 @@
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
+import { AxiosError } from 'axios';
 import { replace, push, UpdateLocationActions } from '@lagunovsky/redux-react-router';
 import { AuthAction, AuthActionTypes, IAuthData } from '../types/auth';
 import { RootState } from './reducer';
@@ -32,17 +33,15 @@ export const loadData = (): AppThunkAction => async (dispatch, getState) => {
         .then(({ data: { data } }) => {
           dispatch({ type: UserActionTypes.LOAD_DATA_CHUNK_SUCCESS, data: normalizeApiData(data.posts) });
         })
-        .catch((e: AxiosError) => {
-          if (e.response?.status === 401) {
-            dispatch(logout());
-            dispatch({ type: UserActionTypes.LOAD_DATA_ERROR, error: new Error(e.response.statusText) });
-          } else throw e;
-        });
     });
     await Promise.all(promises);
     dispatch({ type: UserActionTypes.LOAD_DATA_SUCCESS });
-  } catch (e) {
-    dispatch(replace('/error'));
+  } catch (e: any) {
+    if (e.response?.status === 401) {
+      dispatch(logout());
+    } else {
+      dispatch(replace('/error'));
+    }           
     dispatch({ type: UserActionTypes.LOAD_DATA_ERROR, error: new Error() });
   }
 };
@@ -63,9 +62,8 @@ export const register =
       dispatch({ type: AuthActionTypes.REGISTER_SUCCESS, data: { token: data.sl_token, name } });
       dispatch(loadData());
       dispatch(push('/users'));
-    } catch (error) {
-      console.log(error);
+    } catch (e) {
       dispatch({ type: AuthActionTypes.REGISTER_ERROR, error: new Error() });
-      dispatch(replace('/error'));
+      dispatch(push('/error'));
     }
   };

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { useTypedSelector } from '../../hooks/user-typed-selector';
+import { useTypedSelector } from '../../hooks/use-typed-selector';
 import Post from './post';
 import Filters from '../filters';
 import styles from './posts.module.css';
@@ -12,6 +12,7 @@ function Posts({ postIds }: PostsPorps) {
   const { entities: posts } = useTypedSelector((state) => state.posts);
   const [search, setSearch] = useState('');
   const [desc, setDesc] = useState(true);
+
   const current = useMemo(() => Object.values(posts).filter((post) => postIds.includes(post.id)), [postIds, posts]); // filter by postIds prop
   const displayed = useMemo(
     () =>

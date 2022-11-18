@@ -2,15 +2,3 @@
   display: flex;
   height: 100%;
 }
-
-.navigation {
-  font-size: 1.2rem;
-  min-width: 25%;
-  display: flex;
-  flex-direction: column;
-}
-
-.list {
-  overflow-y: auto;
-  flex-grow: 1;
-}

@@ -8,7 +8,7 @@ interface PostProps {
 
 export default function Post({ post: {message, createdTime} }: PostProps) {
   return (
-    <div className={styles.post}>
+    <div className={styles.post} data-testid='post'>
       <div className={styles.header}>{formatDate(createdTime)}</div>
       <div className={styles.body}>{message}</div>
     </div>

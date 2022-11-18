@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import Header from '../header';
 import Users from '../users';
 import LoginForm from '../login-form';
-import { useTypedSelector } from '../../hooks/user-typed-selector';
+import { useTypedSelector } from '../../hooks/use-typed-selector';
 import { useActions } from '../../hooks/use-actions';
 import styles from './app.module.css';
 

@@ -15,7 +15,7 @@ function Filters({ onSearchChange, onDescChange }: FiltersProps) {
         </div>
       )}
       <div className={styles.search}>
-        <input type='text' placeholder='Search' onChange={(e) => onSearchChange(e.target.value)} />
+        <input type='text' placeholder='Search' onChange={(e) => onSearchChange(e.target.value.toLowerCase())} />
       </div>
     </div>
   );

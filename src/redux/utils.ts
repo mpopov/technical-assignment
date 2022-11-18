@@ -20,7 +20,7 @@ export const normalizeApiData = (data: IApiResPost[]) => {
       users[userId] = {
         id: userId,
         name: item.from_name,
-        postIds: [],
+        postIds: [item.id],
       };
     }
   });

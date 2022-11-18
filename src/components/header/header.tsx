@@ -18,7 +18,7 @@ function Header({ authName, loading, logout }: HeaderProps) {
         <span>{authName && `Logged as ${authName}`}</span>
         {authName && <input type='button' value='Logout' onClick={logout} className={styles.sideMenuBtn} />}
       </div>
-      {<div className={styles.loader}>{loading && <Loader />}</div>}
+      {loading && <div className={styles.loader} data-testid='loader'><Loader /></div>}
     </header>
   );
 }
